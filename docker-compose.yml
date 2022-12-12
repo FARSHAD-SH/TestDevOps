@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+    backend:
+        build: ./API/simple-api-student-main
+        networks:
+            - app-network
+        depends_on:
+            - database
+
+
+    database:
+        build: ./database
+        networks:
+            - app-network
+
+    httpd:
+        build: ./httpserver
+        ports:
+            - 8082:80
+        networks:
+            - app-network
+        depends_on:
+            - backend
+
+networks:
+    app-network:
+
+
+
