@@ -46,7 +46,7 @@ jobs:
         with:
           context: ./database
           tags: ${{secrets.DOCKER_HUB_USERNAME}}/clockbox/database
-          push: ${{ github.ref == 'refs/heads/main' }}
+          # push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Build image and push httpd
         # DO the same for httpd
@@ -54,5 +54,5 @@ jobs:
         with:
           context: ./httpserver
           tags: ${{secrets.DOCKER_HUB_USERNAME}}/clockbox/httpserver
-          push: ${{ github.ref == 'refs/heads/main' }}
+          # push: ${{ github.ref == 'refs/heads/main' }}
 
